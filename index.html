@@ -18,45 +18,28 @@
   </head>
   <body>
     <div id="app">
-        <div id="content">
-
-            <div id="component">
-                <div id="chat">
-                    <div class="message-box foreign-message">
-                        <div class="message">
-                            <div class="avatar">
-                                L
-                            </div>
-                            Hello
-                        </div>
-                    </div>
-                    <div class="message-box own-message">
-                        <div class="message">
-                            <div class="avatar">
-                                K
-                            </div>
-                            Hey
-                        </div>
-                    </div>
-                    <div class="message-box foreign-message">
-                        <div class="message">
-                            <div class="avatar">
-                                L
-                            </div>
-                            How are you?
-                        </div>
-                    </div>
-
-                    <div id="spacer"></div>
-
-                    <div id="input-box">
-                        <input id="input" type="text" placeholder="Enter your message..."/>
-                        <div id="input-submition" class="material-icons">send</div>
-                    </div>
-                </div>
+      <div id="content">
+        <div id="component">
+          <div id="chat">
+            <div id="messages">
             </div>
 
+            <div id="spacer"></div>
+
+            <form id="input-box">
+              <input
+                id="input"
+                type="text"
+                placeholder="Enter your message..."
+                disabled
+              />
+              <div id="button-submit" class="material-icons">send</div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+    <script type="text/javascript" src="js/chat.js"></script>
+    <script type="text/javascript" src="js/websocket.js"></script>
   </body>
 </html>

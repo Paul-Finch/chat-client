@@ -51,7 +51,12 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    max-height: 400px;
+}
+
+#messages {
+    max-height: calc(100% - 80px);
+    overflow-y: auto;
+    overflow-x: visible;
 }
 
 #spacer {
@@ -94,7 +99,7 @@ input {
     border-bottom: 2px solid rgba(255, 255, 255, 0.507);
 }
 
-#input-submition {
+#button-submit {
     flex-grow: 0;
     height: 40px;
     width: 40px;
@@ -104,13 +109,14 @@ input {
     color: rgba(255, 255, 255, 0.829);
 }
 
-#input-submition:hover {
+#button-submit:hover {
     cursor: pointer;
     color: white;
 }
 
 .message-box {
     display: flex;
+    padding: 0px 20px;
 }
 
 .own-message {
@@ -123,12 +129,12 @@ input {
 
 .own-message .message {
     background: rgba(255, 255, 255, 0.164);
-    padding-right: 40px;
+    padding-right: 50px;
 }
 
 .foreign-message .message {
     background: rgba(255, 255, 255, 0.062);
-    padding-left: 40px;
+    padding-left: 50px;
 }
 
 .message {
@@ -144,6 +150,7 @@ input {
 
 .avatar {
     position: absolute;
+    top: 0;
     width: 40px;
     height: 40px;
     border-radius: 40px;
@@ -154,15 +161,14 @@ input {
     align-items: center;
     font-size: 18px;
     color: black;
-    top: 0px;
 }
 
 .own-message .avatar {
-    right: -10px;
+    right: 0px;
 }
 
 .foreign-message .avatar {
-    left: -10px;
+    left: 0px;
 }
 
 @keyframes hide-message {
@@ -182,7 +188,22 @@ input {
 
     #chat {
         width: 90%;
-        max-height: 100%;
     }
 
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
