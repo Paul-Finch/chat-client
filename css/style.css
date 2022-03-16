@@ -54,7 +54,7 @@ body {
 }
 
 #messages {
-    max-height: calc(100% - 80px);
+    height: calc(100% - 80px);
     overflow-y: auto;
     overflow-x: visible;
 }
@@ -119,56 +119,51 @@ input {
     padding: 0px 20px;
 }
 
+.foreign-message-box{
+    flex-direction: row;
+}
+
+.own-message-box{
+    flex-direction: row-reverse;
+}
+
 .own-message {
+    background: rgba(255, 255, 255, 0.164);
     flex-direction: row-reverse;
 }
 
 .foreign-message {
+    background: rgba(255, 255, 255, 0.062);
     flex-direction: row;
 }
 
-.own-message .message {
-    background: rgba(255, 255, 255, 0.164);
-    padding-right: 50px;
-}
-
-.foreign-message .message {
-    background: rgba(255, 255, 255, 0.062);
-    padding-left: 50px;
+.message-text{
+    padding: 10px 20px;
+    flex-grow: 1;
 }
 
 .message {
-    padding: 10px 20px;
     margin: 10px 0px;
-    flex-grow: 0;
-    position: relative;
-    z-index: 1;
     border-radius: 20px;
-    width: calc(100% - 150px);
+    width: calc(100% - 40px);
+    display: flex;
     /* animation: hide-message 2s ease forwards; */
 }
 
 .avatar {
-    position: absolute;
-    top: 0;
-    width: 40px;
-    height: 40px;
+    position: relative;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
     border-radius: 40px;
     background: rgba(255, 255, 255, 0.9);
-    z-index: 10;
+    flex-grow: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     color: black;
-}
-
-.own-message .avatar {
-    right: 0px;
-}
-
-.foreign-message .avatar {
-    left: 0px;
 }
 
 @keyframes hide-message {
@@ -206,4 +201,59 @@ input {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.8);
+}
+
+.popover {
+    position: absolute;
+    background: rgba(255, 255, 255, 1);
+    top: 0;
+    z-index: 20;
+    border-radius: 20px;
+    width: 200px;
+    display: none;
+    color: black;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popover-title{
+    padding: 12px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+}
+
+.popover-content{
+    padding: 0px 20px;
+    padding-bottom: 10px;
+}
+
+.button{
+    color: white;
+    background: #5985be;
+    padding: 6px 15px;
+    width: calc(100% - 30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background: #4e89e0;
+    cursor: pointer;
+}
+
+.avatar:hover .popover{
+    display: block;
+}
+
+.foreign-avatar:hover .popover{
+    left: 0;
+}
+
+.own-avatar:hover .popover{
+    right: 0px;
 }

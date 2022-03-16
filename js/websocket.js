@@ -36,6 +36,10 @@ connection.onmessage = function (message) {
     input.disabled = false;
     const json = JSON.parse(message.data);
     if (json.type === "history") {
+      addMessage({
+        author: botName,
+        text: 'Chat history has been loaded...'
+      });
       for (let i = 0; i < json.data.length; i++) {
         const message = json.data[i];
         addMessage(message);
