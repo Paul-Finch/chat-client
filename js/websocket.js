@@ -1,45 +1,36 @@
-const server = "127.0.0.1";
-const port = "8353";
+/*
+  Websocket
+  - Establishes and controls server connection
+*/
+
 const connection = new WebSocket(`ws://${server}:${port}`);
 
-addMessage({
-  author: botName,
-  text: "Connecting to the chatroom...",
-});
+chatBot.connectionMessage();
 
+// Event fires on connection open
 connection.onopen = function () {
-  addMessage({
-    author: botName,
-    text: "Connected. Welcome to this channel!",
-  });
+  chatBot.welcomeMessage();
   if (!userName) {
-    addMessage({
-      author: botName,
-      text: "You have not yet set your user name. Please enter your name.",
-    });
+    chatBot.enterNameMessage();
     input.placeholder = "Enter your name...";
     input.disabled = false;
     input.focus();
   }
 };
 
+// Event fires on connection error
 connection.onerror = function (error) {
-  addMessage({
-    author: botName,
-    text: "An error occured while connecting to the chatserver. Please try again later.",
-  });
+  chatBot.connectionErrorMessage();
   input.disabled = true;
 };
 
+// Event fires on connection message received
 connection.onmessage = function (message) {
   try {
     input.disabled = false;
     const json = JSON.parse(message.data);
     if (json.type === "history") {
-      addMessage({
-        author: botName,
-        text: 'Chat history has been loaded...'
-      });
+      chatBot.chatHistoryLoadedMessage();
       for (let i = 0; i < json.data.length; i++) {
         const message = json.data[i];
         addMessage(message);
