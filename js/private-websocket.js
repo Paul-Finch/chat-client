@@ -11,7 +11,6 @@ chatBot.privateConnectionMessage();
 connection.onopen = function () {
   chatBot.privateWelcomeMessage(receiver);
   let url = new URL(window.location.toString());
-  console.log(url.searchParams.get('client'));
   if (!userName && !url.searchParams.get('client')) {
     chatBot.enterNameMessage();
     input.placeholder = "Enter your name...";

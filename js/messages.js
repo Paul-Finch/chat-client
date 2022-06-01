@@ -4,7 +4,6 @@
 */
 
 function addMessage(message){
-    console.log('userName', userName, 'message.author', message.author);
     const messages = document.getElementById('messages');
     const msgBox = document.createElement('div');
     msgBox.classList.add('message-box');

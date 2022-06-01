@@ -48,3 +48,10 @@ connection.onmessage = function (message) {
     return;
   }
 };
+
+connection.onclose = function (event) {
+  if (event.code == 1013) {
+    chatBot.addMessage(event.reason);
+    input.disabled = true;
+  }
+}
