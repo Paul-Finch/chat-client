@@ -20,6 +20,14 @@ const ChatBot = function(){
         this.addMessage("Connected. Welcome to this channel!");
     }
 
+    this.privateConnectionMessage = function(){
+        this.addMessage("Connecting to the private chatroom...");
+    }
+
+    this.privateWelcomeMessage = function(receiver){
+        this.addMessage(`Connected. Welcome to the private chat with ${receiver}!`);
+    }
+
     this.enterNameMessage = function(){
         this.addMessage("You have not yet set your user name. Please enter your name.");
     }

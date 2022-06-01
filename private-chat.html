@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Private Chat Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="content">
+        <div id="component">
+          <div id="chat">
+            <div id="messages">
+            </div>
+
+            <div id="spacer"></div>
+
+            <form id="input-box">
+              <input
+                id="input"
+                type="text"
+                placeholder="Enter your message..."
+                disabled
+              />
+              <div id="button-submit" class="material-icons">send</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/private-config.js"></script>
+    <script type="text/javascript" src="js/chat-formular.js"></script>
+    <script type="text/javascript" src="js/messages.js"></script>
+    <script type="text/javascript" src="js/chat-bot.js"></script>
+    <script type="text/javascript" src="js/private-websocket.js"></script>
+  </body>
+</html>

@@ -257,3 +257,7 @@ input {
 .own-avatar:hover .popover{
     right: 0px;
 }
+
+.own-avatar .popover .button{
+    display: none;
+}

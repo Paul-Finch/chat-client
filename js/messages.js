@@ -4,6 +4,7 @@
 */
 
 function addMessage(message){
+    console.log('userName', userName, 'message.author', message.author);
     const messages = document.getElementById('messages');
     const msgBox = document.createElement('div');
     msgBox.classList.add('message-box');
@@ -40,4 +41,11 @@ function addMessage(message){
     msgBox.append(msg);
     messages.append(msgBox);
     messages.scrollTop = messages.scrollHeight;
+
+    btnPrivateMsg.addEventListener("click", () => {
+        let url = new URL(window.location.toString().replace('index.html', 'private-chat.html'));
+        url.searchParams.append('client', userName);
+        url.searchParams.append('receiver', message.author)
+        window.open(url);
+    })
 }
